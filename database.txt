@@ -13,7 +13,3 @@ CREATE TABLE messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- (Опціонально) Додавання тестових даних
-INSERT INTO messages (name, email, message, created_at) VALUES
-('Іван', 'ivan@example.com', 'Тестове повідомлення', '2025-04-19 18:00:00'),
-('Марія', 'maria@example.com', 'Ще одне повідомлення', '2025-04-19 18:15:00');
