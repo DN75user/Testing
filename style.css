@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa;
+}
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.alert {
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+.table {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.btn-primary {
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+}
