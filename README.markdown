@@ -4,13 +4,13 @@
 
 ## Демо-версія
 
-Демо-версія доступна за посиланням: https://dn75user.github.io/Testing/
+Демо-версія доступна за посиланням: [https://dn75user.github.io/Testing/](https://dn75user.github.io/Testing/)
 
 **Примітка**: Демо-версія на GitHub Pages є статичною і відображає лише інтерфейс форми. Для повноцінної роботи (збереження повідомлень у базі даних) потрібен сервер із підтримкою PHP і MySQL.
 
 ## Встановлення локально
 
-1. Встановіть MAMP для запуску PHP і MySQL.
+1. Встановіть [MAMP](https://www.mamp.info/) для запуску PHP і MySQL.
 
 2. Склонуйте репозиторій:
 
@@ -20,19 +20,26 @@
 
 3. Помістіть файли в папку `C:\MAMP\htdocs` або `C:\MAMP\htdocs\Testing`.
 
-4. Створіть базу даних `contact_form` і таблицю `messages` у phpMyAdmin:
+4. Створіть базу даних і таблицю:
 
-   ```sql
-   CREATE DATABASE contact_form;
-   USE contact_form;
-   CREATE TABLE messages (
-       id INT AUTO_INCREMENT PRIMARY KEY,
-       name VARCHAR(255) NOT NULL,
-       email VARCHAR(255) NOT NULL,
-       message TEXT NOT NULL,
-       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-   );
-   ```
+   - Відкрийте phpMyAdmin (`http://localhost/phpmyadmin`).
+   - Виконайте SQL-скрипт із файлу `database.sql` або скопіюйте наступний код:
+
+     ```sql
+     CREATE DATABASE contact_form;
+     USE contact_form;
+     CREATE TABLE messages (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         name VARCHAR(255) NOT NULL,
+         email VARCHAR(255) NOT NULL,
+         message TEXT NOT NULL,
+         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+     );
+     -- (Опціонально) Тестові дані
+     INSERT INTO messages (name, email, message, created_at) VALUES
+     ('Іван', 'ivan@example.com', 'Тестове повідомлення', '2025-04-19 18:00:00'),
+     ('Марія', 'maria@example.com', 'Ще одне повідомлення', '2025-04-19 18:15:00');
+     ```
 
 5. Запустіть MAMP і відкрийте `http://localhost/index.php` у браузері.
 
@@ -43,6 +50,7 @@
 - `script.js`: AJAX-логіка для надсилання форми.
 - `style.css`: Стилі для форми та таблиці.
 - `index.html`: Статична версія для демо на GitHub Pages.
+- `database.sql`: SQL-скрипт для створення бази даних і таблиці.
 
 ## Технології
 
@@ -51,3 +59,7 @@
 - JavaScript (jQuery)
 - Bootstrap 5
 - HTML/CSS
+
+## Повноцінне розгортання
+
+Для повноцінної роботи форми (з підтримкою PHP і MySQL) розгорніть проєкт на хостингу, наприклад, [Hostinger](https://www.hostinger.com/). Інструкції для розгортання дивіться в документації хостингу.
