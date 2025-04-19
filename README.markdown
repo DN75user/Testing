@@ -1,52 +1,53 @@
-# Форма зв'язку
+# Форма зв’язку
 
-Цей проект реалізує форму зв'язку з використанням PHP, jQuery та Bootstrap. Форма дозволяє користувачам надсилати повідомлення, які зберігаються в базі даних MySQL і відображаються на сторінці у вигляді таблиці.
+Цей проєкт реалізує форму зв’язку з можливістю надсилання повідомлень і відображення всіх отриманих повідомлень у таблиці. Проєкт використовує PHP, MySQL, JavaScript (jQuery) і Bootstrap.
 
-## Демо
+## Демо-версія
 
-Демо-версія доступна за посиланням: GitHub Pages*Примітка*: Для повноцінної роботи PHP та MySQL потрібен сервер. GitHub Pages підтримує лише статичні файли, тому для тестування серверної частини розгорніть проект на локальному чи віддаленому сервері.
+Демо-версія доступна за посиланням: https://dn75user.github.io/Testing/
 
-## Встановлення
+**Примітка**: Демо-версія на GitHub Pages є статичною і відображає лише інтерфейс форми. Для повноцінної роботи (збереження повідомлень у базі даних) потрібен сервер із підтримкою PHP і MySQL.
 
-1. Клонуйте репозиторій:
+## Встановлення локально
+
+1. Встановіть MAMP для запуску PHP і MySQL.
+
+2. Склонуйте репозиторій:
 
    ```bash
-   git clone https://github.com/your-username/contact-form.git
+   git clone https://github.com/DN75user/Testing.git
    ```
 
-2. Налаштуйте базу даних MySQL:
+3. Помістіть файли в папку `C:\MAMP\htdocs` або `C:\MAMP\htdocs\Testing`.
 
-   - Створіть базу даних `contact_form`.
+4. Створіть базу даних `contact_form` і таблицю `messages` у phpMyAdmin:
 
-   - Виконайте SQL-запит для створення таблиці:
+   ```sql
+   CREATE DATABASE contact_form;
+   USE contact_form;
+   CREATE TABLE messages (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(255) NOT NULL,
+       email VARCHAR(255) NOT NULL,
+       message TEXT NOT NULL,
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   );
+   ```
 
-     ```sql
-     CREATE TABLE messages (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-         name VARCHAR(255) NOT NULL,
-         email VARCHAR(255) NOT NULL,
-         message TEXT NOT NULL,
-         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-     );
-     ```
+5. Запустіть MAMP і відкрийте `http://localhost/index.php` у браузері.
 
-3. Оновіть параметри підключення до бази даних у `submit.php` та `index.html` (замініть `username`, `password` на ваші).
+## Файли проєкту
 
-4. Розгорніть проект на сервері з підтримкою PHP (наприклад, XAMPP, WAMP або віддалений хостинг).
+- `index.php`: Основна сторінка з формою та таблицею повідомлень.
+- `submit.php`: Обробка даних форми та збереження в базі.
+- `script.js`: AJAX-логіка для надсилання форми.
+- `style.css`: Стилі для форми та таблиці.
+- `index.html`: Статична версія для демо на GitHub Pages.
 
-## Використані технології
+## Технології
 
-- **Front-end**: HTML, Bootstrap 5, jQuery
-- **Back-end**: PHP, MySQL
-- **Стилізація**: CSS з ефектами анімації
-
-## Функціональність
-
-- Форма з полями: ім'я, email, повідомлення.
-- Надсилання даних через AJAX без перезавантаження сторінки.
-- Відображення всіх отриманих повідомлень у таблиці.
-- Візуальні ефекти для кнопки та адаптивний дизайн.
-
-## Автор
-
-\[Ваше ім'я\] (https://github.com/your-username)
+- PHP
+- MySQL
+- JavaScript (jQuery)
+- Bootstrap 5
+- HTML/CSS
